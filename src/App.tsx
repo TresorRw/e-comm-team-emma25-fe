@@ -14,7 +14,7 @@ import AddProducts from "./views/sellers/AddProduct";
 import Chat from "./views/Chat";
 import WishList from "./views/WishList";
 import UserNotifications from "./views/UserNotifications";
-import Cart from "./views/cart";
+import Cart from "./views/CartView";
 import Results from "./views/Results";
 import CheckoutFailed from "./views/Checkout/CheckoutFailed";
 import CheckoutSuccess from "./views/Checkout/CheckoutSuccess";
@@ -26,16 +26,14 @@ import io from "socket.io-client";
 import { Notifications } from "./interfaces/Notification";
 import { ToastContainer, toast } from "react-toastify";
 import EditProduct from "./views/sellers/EditProduct";
+import Chatting from "./views/sellers/Chatting";
+import SellerNotification from "./views/sellers/SellerNotification";
+import Profile from "./views/profile";
+
 function getCookie(name: string): string | undefined {
   const gettoken: string | undefined = Cookies.get(name) as string | undefined;
   return gettoken;
 }
-// import SideBar from "./views/Admin/SideBar";
-// import RolePermission from "./views/Admin/rolePermission";
-import SideBar from "./views/Admin/SideBar";
-import Chatting from "./views/sellers/Chatting";
-import SellerNotification from "./views/sellers/SellerNotification";
-// import RolePermission from "./views/Admin/rolePermission";
 
 function App() {
   const token: string | undefined = getCookie("token");
@@ -76,12 +74,10 @@ function App() {
           <Route path="/cancel" element={<CheckoutFailed />} />
           <Route path="/success" element={<CheckoutSuccess />} />
           <Route path="/role-update" element={<RoleUpdate />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/changepassword" element={<ChangePassword />} />
-          <Route path="/admin-dashboard" element={<SideBar />} />
         </Routes>
-        {/* <SideBar /> */}
-        {/* <RolePermission/> */}
       </BrowserRouter>
     </>
   );
