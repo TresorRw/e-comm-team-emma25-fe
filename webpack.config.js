@@ -6,8 +6,10 @@ const dotenv = require('dotenv-webpack');
 module.exports =[{
   mode: 'production',
   devtool: 'source-map',
+  cache: true,
   optimization: {
     minimizer: [new TerserPlugin({})],
+    usedExports: true,
   },
   performance: {
     hints: false
